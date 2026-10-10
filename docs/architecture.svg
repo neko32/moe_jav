@@ -119,12 +119,12 @@
   <text x="1336" y="222" font-size="19" font-weight="600" fill="#1a1a1a">Decide · Jev</text>
   <text x="1336" y="244" font-size="13" fill="#999999">6 atomic questions, one call</text>
   <g font-family="Consolas, monospace" font-size="13" fill="#1a1a1a">
-    <text x="1336" y="276">medical_risk</text><text x="1524" y="276" text-anchor="end" fill="#5a7ba5">score</text>
-    <text x="1336" y="300">lifestyle_risk</text><text x="1524" y="300" text-anchor="end" fill="#5a7ba5">score</text>
-    <text x="1336" y="324">coverage_fit</text><text x="1524" y="324" text-anchor="end" fill="#5a7ba5">noul</text>
-    <text x="1336" y="348">manipulation</text><text x="1524" y="348" text-anchor="end" fill="#5a7ba5">noul</text>
-    <text x="1336" y="372">concealment</text><text x="1524" y="372" text-anchor="end" fill="#5a7ba5">noul</text>
-    <text x="1336" y="396">sufficient_info</text><text x="1524" y="396" text-anchor="end" fill="#5a7ba5">noul</text>
+    <text x="1336" y="276">medical_risk</text><text x="1524" y="276" text-anchor="end" fill="#5a7ba5" font-size="12">score 0–3</text>
+    <text x="1336" y="300">lifestyle_risk</text><text x="1524" y="300" text-anchor="end" fill="#5a7ba5" font-size="12">score 0–3</text>
+    <text x="1336" y="324">coverage_fit</text><text x="1524" y="324" text-anchor="end" fill="#5a7ba5" font-size="12">yes/no (p)</text>
+    <text x="1336" y="348">manipulation</text><text x="1524" y="348" text-anchor="end" fill="#5a7ba5" font-size="12">yes/no (p)</text>
+    <text x="1336" y="372">concealment</text><text x="1524" y="372" text-anchor="end" fill="#5a7ba5" font-size="12">yes/no (p)</text>
+    <text x="1336" y="396">sufficient_info</text><text x="1524" y="396" text-anchor="end" fill="#5a7ba5" font-size="12">yes/no (p)</text>
   </g>
   <line x1="1336" y1="414" x2="1524" y2="414" stroke="#e5e5e5"/>
   <text x="1336" y="436" font-size="13" fill="#999999">explicit, auditable Rust rules</text>
