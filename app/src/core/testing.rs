@@ -1,6 +1,7 @@
 //! Test doubles for the external-service traits.
 
 use std::collections::VecDeque;
+use std::future::{Future, ready};
 use std::sync::Mutex;
 
 use serde_json::Value;
@@ -29,13 +30,15 @@ impl ScriptedLlm {
 }
 
 impl LlmClient for ScriptedLlm {
-    async fn complete_json(&self, prompt: &JsonPrompt<'_>) -> Result<Value> {
+    fn complete_json(&self, prompt: &JsonPrompt<'_>) -> impl Future<Output = Result<Value>> + Send {
         self.prompts.lock().unwrap().push(prompt.user.to_owned());
-        self.replies
-            .lock()
-            .unwrap()
-            .pop_front()
-            .unwrap_or_else(|| Err(AppError::Validation("script exhausted".into())))
+        ready(
+            self.replies
+                .lock()
+                .unwrap()
+                .pop_front()
+                .unwrap_or_else(|| Err(AppError::Validation("script exhausted".into()))),
+        )
     }
 }
 
@@ -47,8 +50,8 @@ impl<F> LlmClient for FnLlm<F>
 where
     F: Fn(&str, &str) -> Result<Value> + Sync,
 {
-    async fn complete_json(&self, prompt: &JsonPrompt<'_>) -> Result<Value> {
-        (self.0)(prompt.system, prompt.user)
+    fn complete_json(&self, prompt: &JsonPrompt<'_>) -> impl Future<Output = Result<Value>> + Send {
+        ready((self.0)(prompt.system, prompt.user))
     }
 }
 
@@ -59,11 +62,12 @@ impl<F> DecisionModel for FnJev<F>
 where
     F: Fn(&JevRequest) -> Result<Value> + Sync,
 {
-    async fn decide(&self, req: &JevRequest) -> Result<JevResponse> {
-        let v = (self.0)(req)?;
-        serde_json::from_value(v).map_err(|e| AppError::BadResponse {
-            service: "jev",
-            message: e.to_string(),
-        })
+    fn decide(&self, req: &JevRequest) -> impl Future<Output = Result<JevResponse>> + Send {
+        ready((self.0)(req).and_then(|v| {
+            serde_json::from_value(v).map_err(|e| AppError::BadResponse {
+                service: "jev",
+                message: e.to_string(),
+            })
+        }))
     }
 }

@@ -318,7 +318,7 @@ mod tests {
         for e in Expert::ALL {
             assert_eq!(e.as_str().parse::<Expert>().unwrap(), e);
             assert_eq!(e.to_string(), e.as_str());
-            assert!(!e.description().is_empty());
+            assert_ne!(e.description(), "");
         }
         assert_eq!(" Medical ".parse::<Expert>().unwrap(), Expert::Medical);
         assert!("dentist".parse::<Expert>().is_err());

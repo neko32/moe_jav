@@ -1,156 +1,163 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+  <!-- Palette follows tanunekolab_portfolio: white, #1a1a1a / #666 / #999 text,
+       #f8f8f8 sections, #e5e5e5 borders, accent #7297c5 / #5a7ba5, square corners, no shadows.
+       Expert hues are muted to sit in the same cool, low-saturation family. -->
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#999999"/>
     </marker>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
-      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.10"/>
-    </filter>
   </defs>
 
-  <rect width="1600" height="900" fill="#f8fafc"/>
+  <rect width="1600" height="900" fill="#ffffff"/>
 
   <!-- Title -->
-  <text x="48" y="64" font-size="34" font-weight="700" fill="#0f172a">moe_jav — Mixture-of-Experts underwriting, gated by a decision model</text>
-  <text x="48" y="100" font-size="19" fill="#475569">Is every part of the applicant's message routed to the right expert?  ·  Rust  ·  TypeSafe Jev  ·  Gemma 4 E4B (local, LM Studio)</text>
+  <text x="56" y="70" font-size="36" font-weight="300" fill="#1a1a1a">moe_jav — Mixture-of-Experts underwriting, gated by a decision model</text>
+  <text x="56" y="106" font-size="18" fill="#666666">Is every part of the applicant's message routed to the right expert?  ·  Rust  ·  TypeSafe Jev  ·  Gemma 4 E4B (local)</text>
+  <rect x="56" y="124" width="64" height="2" fill="#7297c5"/>
 
   <!-- 1. Applicant message -->
-  <g filter="url(#shadow)">
-    <rect x="48" y="150" width="330" height="440" rx="16" fill="#ffffff" stroke="#e2e8f0"/>
-  </g>
-  <text x="70" y="186" font-size="18" font-weight="700" fill="#0f172a">Applicant message</text>
-  <text x="70" y="208" font-size="13" fill="#64748b">free text, mixed topics</text>
+  <rect x="56" y="160" width="322" height="430" fill="#ffffff" stroke="#e5e5e5"/>
+  <text x="78" y="196" font-size="18" font-weight="600" fill="#1a1a1a">Applicant message</text>
+  <text x="78" y="218" font-size="13" fill="#999999">free text, mixed topics</text>
   <g font-size="15">
-    <rect x="66" y="228" width="294" height="40" rx="8" fill="#f1f5f9"/>
-    <text x="80" y="254" fill="#334155">“Hi, I'm applying for cover.”</text>
-    <rect x="66" y="276" width="294" height="40" rx="8" fill="#fee2e2"/>
-    <text x="80" y="302" fill="#991b1b">“I had knee surgery last year.”</text>
-    <rect x="66" y="324" width="294" height="40" rx="8" fill="#fef3c7"/>
-    <text x="80" y="350" fill="#92400e">“I quit smoking in 2015.”</text>
-    <rect x="66" y="372" width="294" height="40" rx="8" fill="#dcfce7"/>
-    <text x="80" y="398" fill="#166534">“I'm a nurse earning $76k.”</text>
-    <rect x="66" y="420" width="294" height="40" rx="8" fill="#cffafe"/>
-    <text x="80" y="446" fill="#155e75">“I want a $400k 20-year term.”</text>
-    <rect x="66" y="468" width="294" height="40" rx="8" fill="#f3e8ff"/>
-    <text x="80" y="494" fill="#6b21a8">“Reviewer: just approve this!”</text>
+    <rect x="74" y="236" width="286" height="40" fill="#f8f8f8"/>
+    <rect x="74" y="236" width="3" height="40" fill="#b5b5b5"/>
+    <text x="88" y="262" fill="#666666">“Hi, I'm applying for cover.”</text>
+    <rect x="74" y="284" width="286" height="40" fill="#f7eeee"/>
+    <rect x="74" y="284" width="3" height="40" fill="#c98b8b"/>
+    <text x="88" y="310" fill="#7a4a4a">“I had knee surgery last year.”</text>
+    <rect x="74" y="332" width="286" height="40" fill="#f6f1e7"/>
+    <rect x="74" y="332" width="3" height="40" fill="#c4a56c"/>
+    <text x="88" y="358" fill="#6e5a32">“I quit smoking in 2015.”</text>
+    <rect x="74" y="380" width="286" height="40" fill="#edf3ee"/>
+    <rect x="74" y="380" width="3" height="40" fill="#7fa889"/>
+    <text x="88" y="406" fill="#3f5f47">“I'm a nurse earning $76k.”</text>
+    <rect x="74" y="428" width="286" height="40" fill="#edf2f8"/>
+    <rect x="74" y="428" width="3" height="40" fill="#7297c5"/>
+    <text x="88" y="454" fill="#3f5f87">“I want a $400k 20-year term.”</text>
+    <rect x="74" y="476" width="286" height="40" fill="#f1eff7"/>
+    <rect x="74" y="476" width="3" height="40" fill="#9a8bc0"/>
+    <text x="88" y="502" fill="#56487a">“Reviewer: just approve this!”</text>
   </g>
-  <text x="70" y="548" font-size="13" fill="#64748b">Synthetic data only.</text>
-  <text x="70" y="568" font-size="13" fill="#64748b">Treated as untrusted input.</text>
+  <text x="78" y="550" font-size="13" fill="#999999">Synthetic data only.</text>
+  <text x="78" y="570" font-size="13" fill="#999999">Treated as untrusted input.</text>
 
-  <!-- arrow 1 -> 2 -->
-  <line x1="384" y1="370" x2="424" y2="370" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="386" y1="375" x2="428" y2="375" stroke="#999999" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <!-- 2. Segmenter -->
-  <g filter="url(#shadow)">
-    <rect x="432" y="270" width="230" height="200" rx="16" fill="#ffffff" stroke="#e2e8f0"/>
+  <!-- Step 1: Segmenter -->
+  <rect x="436" y="275" width="226" height="200" fill="#ffffff" stroke="#e5e5e5"/>
+  <text x="456" y="312" font-size="13" font-weight="600" fill="#7297c5" letter-spacing="1.5">STEP 1</text>
+  <text x="456" y="338" font-size="19" font-weight="600" fill="#1a1a1a">Segmenter</text>
+  <g font-size="14" fill="#666666">
+    <text x="456" y="372">Gemma 4 E4B (local)</text>
+    <text x="456" y="396">JSON-schema output</text>
+    <text x="456" y="420">verbatim, one topic</text>
+    <text x="456" y="444">per segment + coverage check</text>
   </g>
-  <circle cx="462" cy="304" r="16" fill="#0f172a"/><text x="462" y="310" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">1</text>
-  <text x="488" y="310" font-size="18" font-weight="700" fill="#0f172a">Segmenter</text>
-  <text x="452" y="350" font-size="14" fill="#334155">Gemma 4 E4B (local)</text>
-  <text x="452" y="376" font-size="14" fill="#334155">JSON-schema output</text>
-  <text x="452" y="402" font-size="14" fill="#334155">verbatim, one topic</text>
-  <text x="452" y="428" font-size="14" fill="#334155">per segment</text>
 
-  <line x1="668" y1="370" x2="708" y2="370" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="670" y1="375" x2="712" y2="375" stroke="#999999" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <!-- 3. Gate -->
-  <g filter="url(#shadow)">
-    <rect x="716" y="150" width="290" height="440" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+  <!-- Step 2: Gate -->
+  <rect x="720" y="160" width="290" height="430" fill="#ffffff" stroke="#7297c5" stroke-width="1.5"/>
+  <rect x="720" y="160" width="290" height="4" fill="#7297c5"/>
+  <text x="740" y="196" font-size="13" font-weight="600" fill="#7297c5" letter-spacing="1.5">STEP 2</text>
+  <text x="740" y="222" font-size="19" font-weight="600" fill="#1a1a1a">Gate · Jev <tspan font-family="Consolas, monospace" font-size="16" font-weight="400" fill="#5a7ba5">choice</tspan></text>
+  <text x="740" y="244" font-size="13" fill="#999999">calibrated probability per expert</text>
+  <g font-size="13" fill="#666666">
+    <text x="740" y="282">other</text>      <rect x="834" y="272" width="150" height="10" fill="#f0f0f0"/><rect x="834" y="272" width="138" height="10" fill="#b5b5b5"/>
+    <text x="740" y="316">medical</text>    <rect x="834" y="306" width="150" height="10" fill="#f0f0f0"/><rect x="834" y="306" width="141" height="10" fill="#c98b8b"/>
+    <text x="740" y="350">lifestyle</text>  <rect x="834" y="340" width="150" height="10" fill="#f0f0f0"/><rect x="834" y="340" width="122" height="10" fill="#c4a56c"/>
+    <text x="740" y="384">financial</text>  <rect x="834" y="374" width="150" height="10" fill="#f0f0f0"/><rect x="834" y="374" width="135" height="10" fill="#7fa889"/>
+    <text x="740" y="418">coverage</text>   <rect x="834" y="408" width="150" height="10" fill="#f0f0f0"/><rect x="834" y="408" width="144" height="10" fill="#7297c5"/>
+    <text x="740" y="452">compliance</text> <rect x="834" y="442" width="150" height="10" fill="#f0f0f0"/><rect x="834" y="442" width="60" height="10" fill="#9a8bc0"/>
   </g>
-  <circle cx="746" cy="184" r="16" fill="#2563eb"/><text x="746" y="190" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">2</text>
-  <text x="772" y="190" font-size="18" font-weight="700" fill="#0f172a">Gate · Jev <tspan font-family="Consolas, monospace" font-size="16" fill="#2563eb">choice</tspan></text>
-  <text x="736" y="216" font-size="13" fill="#64748b">calibrated probability per expert</text>
-  <g font-size="13" fill="#334155">
-    <text x="736" y="254">other</text>      <rect x="830" y="242" width="150" height="14" rx="7" fill="#e2e8f0"/><rect x="830" y="242" width="138" height="14" rx="7" fill="#94a3b8"/>
-    <text x="736" y="290">medical</text>    <rect x="830" y="278" width="150" height="14" rx="7" fill="#e2e8f0"/><rect x="830" y="278" width="141" height="14" rx="7" fill="#ef4444"/>
-    <text x="736" y="326">lifestyle</text>  <rect x="830" y="314" width="150" height="14" rx="7" fill="#e2e8f0"/><rect x="830" y="314" width="122" height="14" rx="7" fill="#f59e0b"/>
-    <text x="736" y="362">financial</text>  <rect x="830" y="350" width="150" height="14" rx="7" fill="#e2e8f0"/><rect x="830" y="350" width="135" height="14" rx="7" fill="#22c55e"/>
-    <text x="736" y="398">coverage</text>   <rect x="830" y="386" width="150" height="14" rx="7" fill="#e2e8f0"/><rect x="830" y="386" width="144" height="14" rx="7" fill="#06b6d4"/>
-    <text x="736" y="434">compliance</text> <rect x="830" y="422" width="150" height="14" rx="7" fill="#e2e8f0"/><rect x="830" y="422" width="60" height="14" rx="7" fill="#a855f7"/>
-  </g>
-  <line x1="905" y1="232" x2="905" y2="446" stroke="#0f172a" stroke-width="1.5" stroke-dasharray="5 4"/>
-  <text x="905" y="466" font-size="12" fill="#0f172a" text-anchor="middle">τ = 0.5</text>
-  <rect x="736" y="492" width="250" height="34" rx="17" fill="#fdf4ff" stroke="#c026d3"/>
-  <text x="861" y="514" font-size="14" fill="#86198f" text-anchor="middle">confidence &lt; τ → human review</text>
-  <text x="736" y="560" font-size="13" fill="#64748b">answers stay inside the label set —</text>
-  <text x="736" y="578" font-size="13" fill="#64748b">the gate cannot invent an expert</text>
+  <line x1="969" y1="262" x2="969" y2="462" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4 4"/>
+  <text x="969" y="480" font-size="12" fill="#666666" text-anchor="middle">τ = 0.9</text>
+  <rect x="740" y="500" width="250" height="34" fill="#ffffff" stroke="#7297c5"/>
+  <text x="865" y="522" font-size="14" fill="#5a7ba5" text-anchor="middle">confidence &lt; τ → human review</text>
+  <text x="740" y="560" font-size="13" fill="#999999">answers stay inside the label set —</text>
+  <text x="740" y="578" font-size="13" fill="#999999">the gate cannot invent an expert</text>
 
-  <!-- 4. Experts -->
+  <!-- Experts -->
   <g font-size="15" font-weight="600">
-    <g filter="url(#shadow)">
-      <rect x="1064" y="160" width="200" height="56" rx="12" fill="#fee2e2" stroke="#ef4444"/>
-      <rect x="1064" y="232" width="200" height="56" rx="12" fill="#fef3c7" stroke="#f59e0b"/>
-      <rect x="1064" y="304" width="200" height="56" rx="12" fill="#dcfce7" stroke="#22c55e"/>
-      <rect x="1064" y="376" width="200" height="56" rx="12" fill="#cffafe" stroke="#06b6d4"/>
-      <rect x="1064" y="448" width="200" height="56" rx="12" fill="#f3e8ff" stroke="#a855f7"/>
-    </g>
-    <text x="1164" y="194" text-anchor="middle" fill="#991b1b">Medical expert</text>
-    <text x="1164" y="266" text-anchor="middle" fill="#92400e">Lifestyle expert</text>
-    <text x="1164" y="338" text-anchor="middle" fill="#166534">Financial expert</text>
-    <text x="1164" y="410" text-anchor="middle" fill="#155e75">Coverage expert</text>
-    <text x="1164" y="482" text-anchor="middle" fill="#6b21a8">Compliance expert</text>
+    <rect x="1066" y="166" width="200" height="56" fill="#f7eeee" stroke="#c98b8b"/>
+    <rect x="1066" y="238" width="200" height="56" fill="#f6f1e7" stroke="#c4a56c"/>
+    <rect x="1066" y="310" width="200" height="56" fill="#edf3ee" stroke="#7fa889"/>
+    <rect x="1066" y="382" width="200" height="56" fill="#edf2f8" stroke="#7297c5"/>
+    <rect x="1066" y="454" width="200" height="56" fill="#f1eff7" stroke="#9a8bc0"/>
+    <text x="1166" y="200" text-anchor="middle" fill="#7a4a4a">Medical expert</text>
+    <text x="1166" y="272" text-anchor="middle" fill="#6e5a32">Lifestyle expert</text>
+    <text x="1166" y="344" text-anchor="middle" fill="#3f5f47">Financial expert</text>
+    <text x="1166" y="416" text-anchor="middle" fill="#3f5f87">Coverage expert</text>
+    <text x="1166" y="488" text-anchor="middle" fill="#56487a">Compliance expert</text>
   </g>
-  <text x="1164" y="534" font-size="13" fill="#64748b" text-anchor="middle">Gemma · run concurrently</text>
-  <text x="1164" y="552" font-size="13" fill="#64748b" text-anchor="middle">only experts with segments run</text>
-  <text x="1164" y="570" font-size="13" fill="#64748b" text-anchor="middle">(sparse activation)</text>
-
-  <g stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrow)">
-    <path d="M1010 290 C1035 290, 1035 188, 1058 188"/>
-    <path d="M1010 326 C1035 326, 1035 260, 1058 260"/>
-    <path d="M1010 362 L1058 332"/>
-    <path d="M1010 398 L1058 404"/>
-    <path d="M1010 434 C1035 434, 1035 476, 1058 476"/>
+  <g font-size="13" fill="#999999" text-anchor="middle">
+    <text x="1166" y="538">Gemma · run concurrently</text>
+    <text x="1166" y="556">only experts with segments run</text>
+    <text x="1166" y="574">(sparse activation)</text>
   </g>
 
-  <!-- 5. Underwriting -->
-  <g stroke="#64748b" stroke-width="2" fill="none">
-    <path d="M1268 188 C1290 188, 1290 330, 1306 330"/>
-    <path d="M1268 260 C1290 260, 1290 330, 1306 330"/>
-    <path d="M1268 332 L1306 330"/>
-    <path d="M1268 404 C1290 404, 1290 330, 1306 330"/>
-    <path d="M1268 476 C1290 476, 1290 330, 1306 330" marker-end="url(#arrow)"/>
+  <g stroke="#999999" stroke-width="1.5" fill="none" marker-end="url(#arrow)">
+    <path d="M1014 311 C1038 311, 1038 194, 1060 194"/>
+    <path d="M1014 345 C1038 345, 1038 266, 1060 266"/>
+    <path d="M1014 379 L1060 338"/>
+    <path d="M1014 413 L1060 410"/>
+    <path d="M1014 447 C1038 447, 1038 482, 1060 482"/>
   </g>
-  <g filter="url(#shadow)">
-    <rect x="1312" y="150" width="244" height="440" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
-  </g>
-  <circle cx="1342" cy="184" r="16" fill="#2563eb"/><text x="1342" y="190" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">3</text>
-  <text x="1368" y="190" font-size="18" font-weight="700" fill="#0f172a">Decide · Jev</text>
-  <text x="1332" y="216" font-size="13" fill="#64748b">6 atomic questions, one call</text>
-  <g font-family="Consolas, monospace" font-size="13" fill="#1e293b">
-    <text x="1332" y="248">medical_risk</text><text x="1536" y="248" text-anchor="end" fill="#2563eb">score</text>
-    <text x="1332" y="272">lifestyle_risk</text><text x="1536" y="272" text-anchor="end" fill="#2563eb">score</text>
-    <text x="1332" y="296">coverage_fit</text><text x="1536" y="296" text-anchor="end" fill="#2563eb">noul</text>
-    <text x="1332" y="320">manipulation</text><text x="1536" y="320" text-anchor="end" fill="#2563eb">noul</text>
-    <text x="1332" y="344">concealment</text><text x="1536" y="344" text-anchor="end" fill="#2563eb">noul</text>
-    <text x="1332" y="368">sufficient_info</text><text x="1536" y="368" text-anchor="end" fill="#2563eb">noul</text>
-  </g>
-  <line x1="1332" y1="388" x2="1536" y2="388" stroke="#e2e8f0"/>
-  <text x="1332" y="412" font-size="13" fill="#64748b">explicit, auditable Rust rules</text>
-  <g font-size="14" font-weight="600" text-anchor="middle">
-    <rect x="1332" y="428" width="204" height="30" rx="15" fill="#dcfce7"/><text x="1434" y="448" fill="#166534">Accept</text>
-    <rect x="1332" y="464" width="204" height="30" rx="15" fill="#fef3c7"/><text x="1434" y="484" fill="#92400e">Accept with conditions</text>
-    <rect x="1332" y="500" width="204" height="30" rx="15" fill="#fee2e2"/><text x="1434" y="520" fill="#991b1b">Decline</text>
-    <rect x="1332" y="536" width="204" height="30" rx="15" fill="#fdf4ff" stroke="#c026d3"/><text x="1434" y="556" fill="#86198f">Refer to human</text>
+  <g stroke="#999999" stroke-width="1.5" fill="none">
+    <path d="M1270 194 C1292 194, 1292 336, 1308 336"/>
+    <path d="M1270 266 C1292 266, 1292 336, 1308 336"/>
+    <path d="M1270 338 L1308 336"/>
+    <path d="M1270 410 C1292 410, 1292 336, 1308 336"/>
+    <path d="M1270 482 C1292 482, 1292 336, 1308 336" marker-end="url(#arrow)"/>
   </g>
 
-  <!-- 4. Evaluation band -->
-  <g filter="url(#shadow)">
-    <rect x="48" y="640" width="1508" height="200" rx="16" fill="#0f172a"/>
+  <!-- Step 3: Decide -->
+  <rect x="1316" y="160" width="228" height="430" fill="#ffffff" stroke="#7297c5" stroke-width="1.5"/>
+  <rect x="1316" y="160" width="228" height="4" fill="#7297c5"/>
+  <text x="1336" y="196" font-size="13" font-weight="600" fill="#7297c5" letter-spacing="1.5">STEP 3</text>
+  <text x="1336" y="222" font-size="19" font-weight="600" fill="#1a1a1a">Decide · Jev</text>
+  <text x="1336" y="244" font-size="13" fill="#999999">6 atomic questions, one call</text>
+  <g font-family="Consolas, monospace" font-size="13" fill="#1a1a1a">
+    <text x="1336" y="276">medical_risk</text><text x="1524" y="276" text-anchor="end" fill="#5a7ba5">score</text>
+    <text x="1336" y="300">lifestyle_risk</text><text x="1524" y="300" text-anchor="end" fill="#5a7ba5">score</text>
+    <text x="1336" y="324">coverage_fit</text><text x="1524" y="324" text-anchor="end" fill="#5a7ba5">noul</text>
+    <text x="1336" y="348">manipulation</text><text x="1524" y="348" text-anchor="end" fill="#5a7ba5">noul</text>
+    <text x="1336" y="372">concealment</text><text x="1524" y="372" text-anchor="end" fill="#5a7ba5">noul</text>
+    <text x="1336" y="396">sufficient_info</text><text x="1524" y="396" text-anchor="end" fill="#5a7ba5">noul</text>
   </g>
-  <circle cx="82" cy="680" r="16" fill="#38bdf8"/><text x="82" y="686" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle">4</text>
-  <text x="110" y="687" font-size="20" font-weight="700" fill="#f8fafc">Evaluation: did the gate pick the right expert?</text>
-  <g font-size="16" fill="#cbd5e1">
-    <text x="72" y="730">• Golden set: 40 synthetic applications, 160 hand-labelled segments</text>
-    <text x="72" y="760">• Jev gate vs. LLM gate on the same rubric</text>
-    <text x="72" y="790">• Accuracy · per-expert F1 · confusion matrix</text>
-    <text x="72" y="820">• Includes injection, concealment, ambiguity, fairness pairs</text>
-  </g>
-  <g font-size="16" fill="#cbd5e1">
-    <text x="820" y="730">• Calibration: ECE, Brier score, reliability diagram</text>
-    <text x="820" y="760">• Gate at τ: auto-routed share, errors caught vs. missed</text>
-    <text x="820" y="790">• End-to-end: segment recall, decision agreement</text>
-    <text x="820" y="820">• Fairness: same facts, different demographics → same decision</text>
+  <line x1="1336" y1="414" x2="1524" y2="414" stroke="#e5e5e5"/>
+  <text x="1336" y="436" font-size="13" fill="#999999">explicit, auditable Rust rules</text>
+  <g font-size="14" text-anchor="middle">
+    <rect x="1336" y="448" width="188" height="30" fill="#ffffff" stroke="#7fa889"/><text x="1430" y="468" fill="#3f5f47">Accept</text>
+    <rect x="1336" y="482" width="188" height="30" fill="#ffffff" stroke="#c4a56c"/><text x="1430" y="502" fill="#6e5a32">Accept with conditions</text>
+    <rect x="1336" y="516" width="188" height="30" fill="#ffffff" stroke="#c98b8b"/><text x="1430" y="536" fill="#7a4a4a">Decline</text>
+    <rect x="1336" y="550" width="188" height="30" fill="#7297c5"/><text x="1430" y="570" fill="#ffffff" font-weight="600">Refer to human</text>
   </g>
 
-  <text x="1556" y="878" font-size="13" fill="#94a3b8" text-anchor="end">POC · synthetic data · not for real underwriting decisions</text>
+  <!-- Step 4: Evaluation (section band, like the portfolio's #f8f8f8 sections) -->
+  <rect x="0" y="636" width="1600" height="264" fill="#f8f8f8"/>
+  <text x="56" y="680" font-size="13" font-weight="600" fill="#7297c5" letter-spacing="1.5">STEP 4 · EVALUATION</text>
+  <text x="56" y="714" font-size="26" font-weight="300" fill="#1a1a1a">Did the gate pick the right expert?</text>
+  <g font-size="15" fill="#666666">
+    <circle cx="62" cy="752" r="3" fill="#7297c5"/><text x="76" y="757">40 synthetic applications, 160 hand-labelled segments</text>
+    <circle cx="62" cy="782" r="3" fill="#7297c5"/><text x="76" y="787">Jev gate vs. LLM gate on the same rubric</text>
+    <circle cx="62" cy="812" r="3" fill="#7297c5"/><text x="76" y="817">Accuracy · per-expert F1 · ECE · threshold sweep</text>
+    <circle cx="62" cy="842" r="3" fill="#7297c5"/><text x="76" y="847">Injection, concealment, ambiguity, fairness pairs</text>
+  </g>
+
+  <!-- Headline result cards -->
+  <rect x="640" y="736" width="430" height="124" fill="#ffffff" stroke="#e5e5e5"/>
+  <rect x="640" y="736" width="3" height="124" fill="#7297c5"/>
+  <text x="664" y="764" font-size="13" font-weight="600" fill="#7297c5" letter-spacing="1">JEV GATE · τ = 0.9</text>
+  <text x="664" y="808" font-size="34" font-weight="300" fill="#1a1a1a">0 misroutes</text>
+  <text x="664" y="840" font-size="14" fill="#666666">with 4.4% of segments sent to a human</text>
+
+  <rect x="1094" y="736" width="450" height="124" fill="#ffffff" stroke="#e5e5e5"/>
+  <rect x="1094" y="736" width="3" height="124" fill="#b5b5b5"/>
+  <text x="1118" y="764" font-size="13" font-weight="600" fill="#999999" letter-spacing="1">LLM GATE · τ = 0.99</text>
+  <text x="1118" y="808" font-size="34" font-weight="300" fill="#1a1a1a">1 misroute left</text>
+  <text x="1118" y="840" font-size="14" fill="#666666">at confidence 1.00, with 22% sent to a human</text>
+
+  <text x="1544" y="884" font-size="12" fill="#999999" text-anchor="end">POC · synthetic data · not for real underwriting decisions · github.com/neko32/moe_jav</text>
 </svg>

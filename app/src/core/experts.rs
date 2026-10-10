@@ -177,13 +177,7 @@ mod tests {
     #[tokio::test]
     async fn no_segments_means_no_calls() {
         let llm = FnLlm(|_: &str, _: &str| panic!("should not be called"));
-        assert!(
-            ExpertPanel::new(&llm)
-                .analyse(&[])
-                .await
-                .unwrap()
-                .is_empty()
-        );
+        assert_eq!(ExpertPanel::new(&llm).analyse(&[]).await.unwrap(), []);
     }
 
     #[tokio::test]
@@ -196,7 +190,7 @@ mod tests {
     #[test]
     fn every_expert_has_a_focus() {
         for e in Expert::ALL {
-            assert!(!focus(e).is_empty());
+            assert_ne!(focus(e), "");
         }
     }
 }

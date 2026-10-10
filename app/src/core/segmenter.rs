@@ -218,7 +218,10 @@ mod tests {
                 .map(|x| SegmentText::new(x).unwrap())
                 .collect::<Vec<_>>()
         };
-        assert!(residual("Hi. I smoke.", &segs(&["Hi", "I smoke"])).is_empty());
+        assert_eq!(
+            residual("Hi. I smoke.", &segs(&["Hi", "I smoke"])),
+            Vec::<String>::new()
+        );
         assert_eq!(
             residual(
                 "I smoke daily. I earn $50k.",

@@ -139,7 +139,7 @@ mod tests {
         };
         let app = ApplicationText::new("whatever").unwrap();
         let r = p.run(&app).await.unwrap();
-        assert!(r.findings.is_empty());
+        assert_eq!(r.findings, []);
         assert_eq!(r.underwriting.decision, Decision::ReferToHuman);
     }
 }
