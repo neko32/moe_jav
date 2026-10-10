@@ -30,6 +30,8 @@ and Gemma 4 E4B were each tested as the router, using the same rubric.
 Numbers are from the final code (run 3). Earlier runs are kept in
 [docs/eval/run1](docs/eval/run1) and [docs/eval/run2](docs/eval/run2).
 
+![Results](docs/results.png)
+
 **1. Both gates route well, but they fail differently.**
 On gold segments both reach about 98% accuracy (Jev 98.1%, LLM 97.5%), so
 accuracy alone doesn't separate them. What separates them is *where the
