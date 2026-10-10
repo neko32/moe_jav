@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>moe_jav dependencies</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1f2328; --muted: #59636e; --line: #d1d9e0; --head: #f6f8fa; --accent: #0969da;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --line: #3d444d; --head: #151b23; --accent: #4493f8; }
+  }
+  body { background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, sans-serif; margin: 0 auto; max-width: 960px; padding: 24px 16px; }
+  h1 { font-size: 1.6rem; margin-bottom: 4px; }
+  h2 { font-size: 1.15rem; margin-top: 32px; }
+  p.note { color: var(--muted); margin-top: 0; }
+  .wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border-bottom: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--head); font-weight: 600; }
+  td.v { font-family: ui-monospace, monospace; white-space: nowrap; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<h1>moe_jav — dependencies</h1>
+<p class="note">Direct dependencies of the Rust CLI (<code>app/Cargo.toml</code>, resolved in <code>Cargo.lock</code>). There is no frontend; the external services are listed for completeness. Checked with <code>cargo audit</code>.</p>
+
+<h2>Runtime crates</h2>
+<div class="wrap"><table>
+<tr><th>Crate</th><th>Version</th><th>Features</th><th>Purpose</th></tr>
+<tr><td><a href="https://crates.io/crates/tokio">tokio</a></td><td class="v">1.53.2</td><td>macros, rt-multi-thread, time</td><td>Async runtime; drives concurrent expert calls and retry backoff.</td></tr>
+<tr><td><a href="https://crates.io/crates/reqwest">reqwest</a></td><td class="v">0.13.5</td><td>json, rustls (no default features)</td><td>HTTP client for Jev and the local LLM; TLS via rustls (aws-lc-rs), no OpenSSL.</td></tr>
+<tr><td><a href="https://crates.io/crates/futures">futures</a></td><td class="v">0.3.34</td><td>default</td><td><code>try_join_all</code> and buffered streams for bounded concurrency.</td></tr>
+<tr><td><a href="https://crates.io/crates/serde">serde</a></td><td class="v">1.0.229</td><td>derive</td><td>(De)serialisation of requests, responses, reports and the dataset.</td></tr>
+<tr><td><a href="https://crates.io/crates/serde_json">serde_json</a></td><td class="v">1.0.151</td><td>default</td><td>JSON encoding/decoding.</td></tr>
+<tr><td><a href="https://crates.io/crates/clap">clap</a></td><td class="v">4.6.7</td><td>derive, env</td><td>Command-line parsing (<code>apply</code>, <code>eval</code>).</td></tr>
+<tr><td><a href="https://crates.io/crates/thiserror">thiserror</a></td><td class="v">2.0.21</td><td>default</td><td>Derives the <code>AppError</code> type.</td></tr>
+<tr><td><a href="https://crates.io/crates/dotenvy">dotenvy</a></td><td class="v">0.15.7</td><td>default</td><td>Loads an optional <code>.env</code> file.</td></tr>
+<tr><td><a href="https://crates.io/crates/tracing">tracing</a></td><td class="v">0.1.44</td><td>default</td><td>Structured logging of pipeline stages and retries.</td></tr>
+<tr><td><a href="https://crates.io/crates/tracing-subscriber">tracing-subscriber</a></td><td class="v">0.3.23</td><td>env-filter</td><td>Log output to stderr, filtered by <code>RUST_LOG</code>.</td></tr>
+</table></div>
+
+<h2>Development crates</h2>
+<div class="wrap"><table>
+<tr><th>Crate</th><th>Version</th><th>Purpose</th></tr>
+<tr><td><a href="https://crates.io/crates/wiremock">wiremock</a></td><td class="v">0.6.5</td><td>Local mock HTTP server for client integration tests (retries, errors, size cap).</td></tr>
+<tr><td><a href="https://crates.io/crates/tempfile">tempfile</a></td><td class="v">3.27.0</td><td>Temporary files and directories in CLI and dataset tests.</td></tr>
+</table></div>
+
+<h2>Tooling</h2>
+<div class="wrap"><table>
+<tr><th>Tool</th><th>Version</th><th>Purpose</th></tr>
+<tr><td>Rust toolchain</td><td class="v">1.97.0 (edition 2024)</td><td>Compiler; native <code>async fn</code> in traits.</td></tr>
+<tr><td>cargo-llvm-cov</td><td class="v">0.9.1</td><td>Coverage report (<code>docs/coverage</code>), CI gate at 90% lines.</td></tr>
+<tr><td>cargo-audit</td><td class="v">latest</td><td>RustSec vulnerability scan in CI.</td></tr>
+<tr><td>clippy</td><td class="v">toolchain</td><td>Linting with <code>clippy::pedantic</code>.</td></tr>
+</table></div>
+
+<h2>External services</h2>
+<div class="wrap"><table>
+<tr><th>Service</th><th>Model</th><th>Purpose</th></tr>
+<tr><td><a href="https://docs.typesafe.ai/introduction">TypeSafe Jev</a> (System One API)</td><td class="v">jev-latest (jev-1.13.0)</td><td>Decision model: routing gate (<code>choice</code>) and underwriting signals (<code>score</code>, <code>noul</code>).</td></tr>
+<tr><td>LM Studio (OpenAI-compatible)</td><td class="v">google/gemma-4-e4b</td><td>Local LLM for segmentation, expert analysis, and the comparison router.</td></tr>
+</table></div>
+</body>
+</html>

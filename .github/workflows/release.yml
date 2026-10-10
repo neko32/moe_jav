@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+  TARGET: x86_64-unknown-linux-musl
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-unknown-linux-musl
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: app
+      # aws-lc-rs (rustls crypto backend) needs a musl C toolchain.
+      - name: install musl toolchain
+        run: sudo apt-get update && sudo apt-get install -y musl-tools
+      - name: test
+        run: cargo test
+      - name: build
+        run: cargo build --release --target "$TARGET"
+      - name: package
+        run: |
+          mkdir -p bin
+          cp "target/$TARGET/release/moe_jav" bin/
+          tar -czf "moe_jav-${GITHUB_REF_NAME}-${TARGET}.tar.gz" -C bin moe_jav
+          sha256sum "moe_jav-${GITHUB_REF_NAME}-${TARGET}.tar.gz" > "moe_jav-${GITHUB_REF_NAME}-${TARGET}.tar.gz.sha256"
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            app/moe_jav-*.tar.gz
+            app/moe_jav-*.tar.gz.sha256
+          generate_release_notes: true
